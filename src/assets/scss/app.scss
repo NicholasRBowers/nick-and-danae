@@ -1,5 +1,6 @@
 @charset 'utf-8';
 
+@import 'fonts';
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
@@ -51,3 +52,38 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+p {
+    @include breakpoint(small) {
+        font-size: 100%;
+    }
+    @include breakpoint(medium) {
+        font-size: 130%;
+    }
+    @include breakpoint(large) {
+        font-size: 150%;
+    }
+}
+
+.title {
+    font-family: ShoppingScript;
+    font-weight: normal;
+
+    @include breakpoint(small) {
+        font-size: 500%;
+    }
+    @include breakpoint(medium) {
+        font-size: 750%;
+    }
+    @include breakpoint(large) {
+        font-size: 1125%;
+    }
+}
+
+cite {
+    font-size: 80%;
+}
+
+.quote {
+    margin-top: 60px;
+}
