@@ -13,9 +13,15 @@ import Foundation from 'foundation-sites';
 $(document).foundation();
 
 $(document).ready(function() {
-    $('#countdown').countdown("2019/07/13", function(event) {
+    $('.countdown').countdown("2019/07/13 17:00:00", function(event) {
         $(this).text(
             event.strftime('%D day%!D %-H hour%!H %-M minute%!M  %-S second%!S')
         );
+    });
+
+    $('#save-the-date-button').click(function() {
+        $('#home').fadeOut(function() {
+            $('#save-the-date').fadeIn();
+        });
     });
 });
