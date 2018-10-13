@@ -53,7 +53,25 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-p {
+@import 'lib/animate';
+
+.hero {
+    width: 100%;
+    background: no-repeat top center/100% url('/assets/img/nick-and-danae.jpg');
+    color: $medium-gray;
+
+    @include breakpoint(small) {
+        padding: 25px 0;
+    }
+    @include breakpoint(medium) {
+        padding: 50px 0;
+    }
+    @include breakpoint(large) {
+        padding: 75px 0;
+    }
+}
+
+p, ul, li {
     @include breakpoint(small) {
         font-size: 100%;
     }
@@ -65,10 +83,12 @@ p {
     }
 }
 
-.title {
+.title, #rtb {
     font-family: ShoppingScript;
     font-weight: normal;
+}
 
+.title {
     @include breakpoint(small) {
         font-size: 500%;
     }
@@ -77,6 +97,32 @@ p {
     }
     @include breakpoint(large) {
         font-size: 1125%;
+    }
+}
+
+.button {
+    opacity: 0.85;
+}
+
+#rtb {
+    position: fixed;
+    bottom: 0.9375rem;
+    right: 0.9375rem;
+    cursor: pointer;
+    border-radius: 100%;
+    line-height: 1;
+    box-shadow: 0 0 15px 0 $dark-gray;
+    text-align: center;
+    padding: 10px;
+
+    @include breakpoint(small) {
+        font-size: 267%;
+    }
+    @include breakpoint(medium) {
+        font-size: 400%;
+    }
+    @include breakpoint(large) {
+        font-size: 600%;
     }
 }
 
@@ -95,4 +141,3 @@ cite {
 
     h3 { margin-top: 60px;}
 }
-ul li { font-size: 150%; }
