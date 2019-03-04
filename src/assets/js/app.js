@@ -2,8 +2,11 @@ import $ from 'jquery';
 import whatInput from 'what-input';
 
 window.$ = $;
+window.jQuery = $;
+var oneShot = false;
 
 require('./lib/jquery.countdown');
+require('./lib/jquery.pjax');
 
 import Foundation from 'foundation-sites';
 // If you want to pick and choose which modules to include, comment out the above and uncomment
@@ -14,7 +17,10 @@ $(document).foundation();
 
 $(document).ready(function() {
     $(window).bind('load', function() {
-        $('#home').fadeIn('slow');
+        if (!oneShot && (window.location.href == 'https://www.nickanddanae.com/' || window.location.href == 'http://localhost:8000/')) {
+            $('#home').fadeIn('slow');
+            oneShot = true;
+        }
     });
 
     $('.countdown').countdown("2019/07/13 17:00:00", function(event) {
@@ -23,15 +29,30 @@ $(document).ready(function() {
         );
     });
 
-    $('#rtb').click(function() {
-        $('#save-the-date, #home').fadeOut().promise().done(function() {
-            $('#home').fadeIn();
+    if ($.support.pjax) {
+        $(document).on('click', 'a', function(event) {
+            var url = $(this).attr('href');
+            event.preventDefault();
+            $('.content').fadeOut().promise().done(function() {
+                $.pjax({url: url, container: '.content', fragment: '.content'});
+            });
         });
-    });
+    }
 
-    $('#save-the-date-button').click(function() {
-        $('#home').fadeOut(function() {
-            $('#save-the-date').fadeIn();
-        });
+    $(document).on('pjax:send', function() {
+        console.log('STARTING');
+    });
+    $(document).on('pjax:complete', function() {
+        console.log('COMPLETE');
+        $('.content').fadeIn();
+    });
+    $(document).on('pjax:error', function(event) {
+        console.log('ERROR');
+    });
+    $(document).on('pjax:click', function(event) {
+        console.log('CLICKED');
+    });
+    $(document).on('pjax:timeout', function(event) {
+        console.log('TIMEOUT');
     });
 });

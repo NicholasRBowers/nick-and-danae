@@ -55,6 +55,21 @@
 
 @import 'lib/animate';
 
+p, ul, li {
+    @include breakpoint(small) {
+        font-size: 100%;
+    }
+    @include breakpoint(medium) {
+        font-size: 130%;
+    }
+    @include breakpoint(large) {
+        font-size: 150%;
+    }
+}
+
+.button { opacity: 0.85; }
+.hidden { display: none; }
+
 .hero {
     width: 100%;
     background: no-repeat top center/100% url('/assets/img/nick-and-danae.jpg');
@@ -68,18 +83,6 @@
     }
     @include breakpoint(large) {
         padding: 75px 0;
-    }
-}
-
-p, ul, li {
-    @include breakpoint(small) {
-        font-size: 100%;
-    }
-    @include breakpoint(medium) {
-        font-size: 130%;
-    }
-    @include breakpoint(large) {
-        font-size: 150%;
     }
 }
 
@@ -100,8 +103,32 @@ p, ul, li {
     }
 }
 
-.button {
-    opacity: 0.85;
+cite { font-size: 80%; }
+
+.quote {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.prose {
+    margin-bottom: 60px;
+
+    h3 { margin-top: 60px; }
+}
+
+.nav-links .button {
+    @include breakpoint(small) {
+        font-size: 0.75rem;
+        display: block;
+    }
+    @include breakpoint(medium) {
+        font-size: 1.00rem;
+        display: inline-block;
+    }
+    @include breakpoint(large) {
+        font-size: 1.25rem;
+        display: inline-block;
+    }
 }
 
 #rtb {
@@ -124,20 +151,4 @@ p, ul, li {
     @include breakpoint(large) {
         font-size: 600%;
     }
-}
-
-cite {
-    font-size: 80%;
-}
-
-.quote {
-    margin-top: 60px;
-    margin-bottom: 40px;
-}
-
-.hidden { display: none; }
-.prose {
-    margin-bottom: 60px;
-
-    h3 { margin-top: 60px;}
 }
