@@ -120,7 +120,7 @@ function javascript() {
       .on('error', e => { console.log(e); })
     ))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+    .pipe(gulp.dest(PATHS.dist + '/assets/js/app.js'));
 }
 
 // Copy images to the "dist" folder

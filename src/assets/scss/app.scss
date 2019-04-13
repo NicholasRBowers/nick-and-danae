@@ -55,6 +55,9 @@
 
 @import 'lib/animate';
 
+body { margin-bottom: 60px; }
+a { text-decoration: underline; }
+
 p, ul, li {
     @include breakpoint(small) {
         font-size: 100%;
@@ -67,7 +70,10 @@ p, ul, li {
     }
 }
 
-.button { opacity: 0.85; }
+.button {
+    opacity: 0.85;
+    text-decoration: none;
+}
 .hidden { display: none; }
 
 .hero {
@@ -120,14 +126,17 @@ cite { font-size: 80%; }
     @include breakpoint(small) {
         font-size: 0.75rem;
         display: block;
+        width: 100%;
     }
     @include breakpoint(medium) {
         font-size: 1.00rem;
         display: inline-block;
+        width: auto;
     }
     @include breakpoint(large) {
         font-size: 1.25rem;
         display: inline-block;
+        width: auto;
     }
 }
 

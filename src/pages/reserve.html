@@ -1,0 +1,21 @@
+<div id="travel-and-lodging" class="content">
+  <h1 class="title">Reservations</h1>
+  <hr />
+  <div class="text-left prose">
+    <fieldset class="small-12 cell">
+      <h4>What are you booking?</h4>
+      <input id="bus-box" type="checkbox"><label for="bus-box">Round-Trip Bus Ticket ($40 per person)</label><br />
+      <input id="bunk-box" type="checkbox"><label for="bunk-box">NatureBridge Bunk - Two Nights ($85 per person)</label>
+    </fieldset>
+    <h4>How many are you making reservations for?</h4>
+    <input id="quantity" type="number" name="quantity" value="1" />
+    <h2>Total: $<span id="total-amount">0</span></h2>
+    <div class="nav-links">
+      Google Pay (nicholas.ryan.bowers@gmail.com)<br />
+      Venmo (Nicholas-Bowers-1)<br />
+      or<br />
+      <button class="button" id="checkout-button"  disabled role="link">Pay with Credit Card</button>
+    </div>
+    <div id="error-message"></div>
+  </div>
+</div>
