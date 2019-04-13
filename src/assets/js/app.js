@@ -59,6 +59,15 @@ $(document).on('pjax:end', function() {
     );
   });
 
+  switch (window.location.search.substr(1)) {
+    case 'success':
+      $('#payment-success').removeClass('hidden');
+      break;
+    case 'error':
+      $('#payment-error').removeClass('hidden');
+      break;
+  }
+
   var key = '';
   var busSku = '';
   var bunkSku = '';
@@ -94,8 +103,8 @@ $(document).on('pjax:end', function() {
       $('#checkout-button').click(function() {
         stripe.redirectToCheckout({
           items: basket,
-          successUrl: 'https://www.nickanddanae.com/success',
-          cancelUrl: 'https://www.nickanddanae.com/canceled',
+          successUrl: window.location.origin + '/reserve.html?success',
+          cancelUrl: window.location.origin + '/reserve.html?error',
         })
         .then(function (result) {
           if (result.error) {
